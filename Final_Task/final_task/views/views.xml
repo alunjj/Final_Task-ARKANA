@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+
+    <record id="management_sekolah_view_tree" model="ir.ui.view">
+      <field name="name">management.sekolah.view.tree</field>
+      <field name="model">management.sekolah</field>
+      <field name="arch" type="xml">
+        <tree string="Daftar Kelas">
+          <field name="name" />
+          <field name="tanggal" />
+          <field name="status" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="management_sekolah_view_form" model="ir.ui.view">
+      <field name="name">management.sekolah.view.form</field>
+      <field name="model">management.sekolah</field>
+      <field name="arch" type="xml">
+        <form string="Kelas">
+          <header>
+            <button name="action_mulai" string="Mulai" class="btn-primary"/>
+            <button name="action_sel" string="Selesai" states="mul" class="btn-primary"/>
+            <field name="status" widget="statusbar" status_visible="mul,sel" default="mul"/>
+          </header>
+          <sheet>
+            <div>
+              <span class="o_form_label">Nama Kelas</span>
+              <h1>
+                <field name="name" />
+              </h1>
+            </div>
+            <group col="4">
+              <field name="matpel" />
+              <field name="res_id" />
+              <field name="tanggal" />
+            </group>
+            <notebook>
+              <page string="Siswa">
+                <field name="siswa_ids">
+                  <tree>
+                    <field name="sekolah_id" invisible="1"/>
+                    <field name="res_id" />
+                    <field name="absen" widget="radio"/>
+                    <field name="nilai" />
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="management_sekolah_action" model="ir.actions.act_window">
+      <field name="name">Sekolah</field>
+      <field name="res_model">management.sekolah</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Buat Kelas Pertamamu</p>
+      </field>
+    </record>
+
+    <menuitem id="management_sekolah_dashboard" name="Management Sekolah" sequence="10"/>
+
+    <menuitem id="management_sekolah_menu" name="Kelas" sequence="10" parent="management_sekolah_dashboard" action="management_sekolah_action"/>
+  </data>
+</odoo>

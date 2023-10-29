@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_management_sekolah_management_sekolah,management_sekolah.management_sekolah,model_management_sekolah_management_sekolah,base.group_user,1,1,1,1
+access_siswa_sekolah_siswa_sekolah,siswa_sekolah.siswa_sekolah,model_siswa_sekolah_siswa_sekolah,base.group_user,1,1,1,1
+
