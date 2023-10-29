@@ -37,7 +37,7 @@
             </group>
             <notebook>
               <page string="Siswa">
-                <field name="siswa_ids">
+                <field name="siswa_ids" editable="bottom">
                   <tree>
                     <field name="sekolah_id" invisible="1"/>
                     <field name="res_id" />
